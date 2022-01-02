@@ -49,6 +49,7 @@ struct MoviePlayerView: View {
             UIDevice.current.setValue(UIInterfaceOrientation.landscapeLeft.rawValue, forKey: "orientation") // Forcing the rotation to portrait
             AppDelegate.orientationLock = .landscapeLeft // And making sure it stays that way
         }.onDisappear {
+            viewModel.stopVideo()
             AppDelegate.orientationLock = .all // Unlocking the rotation when leaving the view
             UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation") // Forcing the rotation to portrait
         }

@@ -25,7 +25,7 @@ struct MainBackground: View {
                 .tag(2)
         }
         .navigationBarTitle(selectedView == 1 ? "Movies":"Word Cards", displayMode: .large)
-        .navigationBarTitleTextColor(selectedView == 1 ? .white:.black)
+        .navigationBarTitleTextColor(.white)
         .onAppear {
             UITabBar.appearance().backgroundColor = .black
             UITabBar.appearance().unselectedItemTintColor = UIColor(Colors().tabItemNotTappedYellow)

@@ -167,6 +167,10 @@ final class MoviePlayerViewModel:ObservableObject{
         isWordTapped = false
         meanings = []
     }
+    
+    func stopVideo(){
+        player.pause()
+    }
 }
 
 
