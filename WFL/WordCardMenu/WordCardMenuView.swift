@@ -15,17 +15,14 @@ struct WordCardMenuView: View {
     @ObservedObject var viewModel = WordCardMenuViewModel()
     
     var body: some View {
-        NavigationView{
             VStack{
                 cardsView
                     .padding()
                 //buttonsSection
                 //    .padding()
             }
-            .navigationTitle("Word Cards")
-        }
-        .navigationBarHidden(true)
-        .background(.white)
+            
+        .background(.black)
     }
     
     var cardsView: some View {

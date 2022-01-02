@@ -12,26 +12,26 @@ struct MainBackground: View {
 
     var body: some View {
         NavigationView{
-            TabView(selection: $selectedView){
-                MovieListView()
-                    .tabItem {
-                        Label("Movies", systemImage: "list.dash")
-                    }
-                    .tag(1)
-                WordCardMenuView()
-                    .tabItem {
-                        Label("Cards", systemImage: "square.on.square")
-                    }
-                    .tag(2)
-            }
+        TabView(selection: $selectedView){
+            MovieListView()
+                .tabItem {
+                    Label("Movies", systemImage: "list.dash")
+                }
+                .tag(1)
+            WordCardMenuView()
+                .tabItem {
+                    Label("Cards", systemImage: "square.on.square")
+                }
+                .tag(2)
         }
-        .navigationBarHidden(true)
+        .navigationBarTitle(selectedView == 1 ? "Movies":"Word Cards", displayMode: .large)
+        .navigationBarTitleTextColor(selectedView == 1 ? .white:.black)
         .onAppear {
             UITabBar.appearance().backgroundColor = .black
             UITabBar.appearance().unselectedItemTintColor = UIColor(Colors().tabItemNotTappedYellow)
         }
         .accentColor(Colors().tabItemTappedYellow)
-        
+        }
     }
 }
 

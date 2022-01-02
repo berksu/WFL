@@ -46,7 +46,9 @@ struct WordCardView: View {
                                 }else{
                                     withAnimation(.spring()){
                                         self.offset = .zero
-                                        viewModel.player.play()
+                                        if(card.isTapped){
+                                            viewModel.player.play()
+                                        }
                                     }
                                 }
                             }

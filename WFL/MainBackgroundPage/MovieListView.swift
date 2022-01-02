@@ -13,6 +13,7 @@ struct MovieListView: View {
         ScrollView{
             horizontalScrollView(title: "Popular", movieList: [Movie(id: 1, title: "Harry Potter", release_date: "2002", image: "asd", voteAverage: 9.8, voteCount: 12345, overview: "asd", backdropPath: "asd", genreIDs: [1,2])])
         }
+        .background(.black)
     }
     
     func horizontalScrollView(title: String, movieList: [Movie]) -> some View{
