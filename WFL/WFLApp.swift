@@ -10,13 +10,16 @@ import Firebase
 
 @main
 struct WFLApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
     init() {
         FirebaseApp.configure()
     }
     
     var body: some Scene {
         WindowGroup {
-            MoviePlayerView()
+            MainBackground()
+            //MoviePlayerView()
             //WordCardMenuView()
         }
     }

@@ -25,7 +25,13 @@
 		C9620B4727766BBB0018CFF1 /* WordCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9620B4627766BBB0018CFF1 /* WordCardViewModel.swift */; };
 		C9620B492776744C0018CFF1 /* WordCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9620B482776744C0018CFF1 /* WordCardView.swift */; };
 		C985123A277C458A006EFB8E /* MoviePlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9851239277C458A006EFB8E /* MoviePlayerModel.swift */; };
+		C9B0C40E2781F57B000FCE77 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0C40D2781F57B000FCE77 /* Colors.swift */; };
+		C9B0C4102781F706000FCE77 /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0C40F2781F706000FCE77 /* MovieListView.swift */; };
+		C9B0C4132781F79B000FCE77 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C9B0C4122781F79B000FCE77 /* Kingfisher */; };
+		C9B0C4152781F7F7000FCE77 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0C4142781F7F7000FCE77 /* Movie.swift */; };
 		C9B348702773A984007072CB /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B3486F2773A984007072CB /* StringExtension.swift */; };
+		C9C89EBE2781ED4700D857D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C89EBD2781ED4700D857D5 /* AppDelegate.swift */; };
+		C9C89EC02781EEA200D857D5 /* MainBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C89EBF2781EEA200D857D5 /* MainBackground.swift */; };
 		C9E5393527711220006F2D3D /* WFLApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E5393427711220006F2D3D /* WFLApp.swift */; };
 		C9E5393727711220006F2D3D /* MoviePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E5393627711220006F2D3D /* MoviePlayerView.swift */; };
 		C9E5393927711220006F2D3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9E5393827711220006F2D3D /* Assets.xcassets */; };
@@ -70,7 +76,12 @@
 		C9620B4627766BBB0018CFF1 /* WordCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCardViewModel.swift; sourceTree = "<group>"; };
 		C9620B482776744C0018CFF1 /* WordCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCardView.swift; sourceTree = "<group>"; };
 		C9851239277C458A006EFB8E /* MoviePlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePlayerModel.swift; sourceTree = "<group>"; };
+		C9B0C40D2781F57B000FCE77 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		C9B0C40F2781F706000FCE77 /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
+		C9B0C4142781F7F7000FCE77 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		C9B3486F2773A984007072CB /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		C9C89EBD2781ED4700D857D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C9C89EBF2781EEA200D857D5 /* MainBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBackground.swift; sourceTree = "<group>"; };
 		C9E5393127711220006F2D3D /* WFL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WFL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9E5393427711220006F2D3D /* WFLApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WFLApp.swift; sourceTree = "<group>"; };
 		C9E5393627711220006F2D3D /* MoviePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePlayerView.swift; sourceTree = "<group>"; };
@@ -95,6 +106,7 @@
 				C90818132778BA3F00D2F1FE /* FirebaseFirestoreCombine-Community in Frameworks */,
 				C908180F2778BA3F00D2F1FE /* FirebaseAuthCombine-Community in Frameworks */,
 				C90818112778BA3F00D2F1FE /* FirebaseFirestore in Frameworks */,
+				C9B0C4132781F79B000FCE77 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +143,7 @@
 				C9515A0227728D0500E183DB /* OnRotateExtension.swift */,
 				C9B3486F2773A984007072CB /* StringExtension.swift */,
 				C9620B44277669CE0018CFF1 /* ViewExtension.swift */,
+				C9B0C40D2781F57B000FCE77 /* Colors.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -178,8 +191,19 @@
 			children = (
 				C9620B41277668E70018CFF1 /* WordCardMenuView.swift */,
 				C90818192778C63300D2F1FE /* WordCardMenuViewModel.swift */,
+				C9620B3C277668350018CFF1 /* Card */,
 			);
 			path = WordCardMenu;
+			sourceTree = "<group>";
+		};
+		C9C89EC12781EED900D857D5 /* MainBackgroundPage */ = {
+			isa = PBXGroup;
+			children = (
+				C9C89EBF2781EEA200D857D5 /* MainBackground.swift */,
+				C9B0C40F2781F706000FCE77 /* MovieListView.swift */,
+				C9B0C4142781F7F7000FCE77 /* Movie.swift */,
+			);
+			path = MainBackgroundPage;
 			sourceTree = "<group>";
 		};
 		C9E5392827711220006F2D3D = {
@@ -205,14 +229,15 @@
 		C9E5393327711220006F2D3D /* WFL */ = {
 			isa = PBXGroup;
 			children = (
-				C90818142778BD1D00D2F1FE /* Api */,
-				C9620B43277668EF0018CFF1 /* WordCardMenu */,
-				C9620B3C277668350018CFF1 /* Card */,
-				C9515A012772842E00E183DB /* Subtitle */,
+				C9C89EC12781EED900D857D5 /* MainBackgroundPage */,
 				C9515A002772840B00E183DB /* MoviePlayer */,
+				C9620B43277668EF0018CFF1 /* WordCardMenu */,
+				C90818142778BD1D00D2F1FE /* Api */,
+				C9515A012772842E00E183DB /* Subtitle */,
 				C95159FD277283C600E183DB /* Extensions */,
 				C9515A0427728D5800E183DB /* Modifiers */,
 				C9E5393427711220006F2D3D /* WFLApp.swift */,
+				C9C89EBD2781ED4700D857D5 /* AppDelegate.swift */,
 				C90818092778B96100D2F1FE /* GoogleService-Info.plist */,
 				C9E5393827711220006F2D3D /* Assets.xcassets */,
 				C9E5393A27711220006F2D3D /* Preview Content */,
@@ -266,6 +291,7 @@
 				C908180E2778BA3F00D2F1FE /* FirebaseAuthCombine-Community */,
 				C90818102778BA3F00D2F1FE /* FirebaseFirestore */,
 				C90818122778BA3F00D2F1FE /* FirebaseFirestoreCombine-Community */,
+				C9B0C4122781F79B000FCE77 /* Kingfisher */,
 			);
 			productName = WFL;
 			productReference = C9E5393127711220006F2D3D /* WFL.app */;
@@ -341,6 +367,7 @@
 			mainGroup = C9E5392827711220006F2D3D;
 			packageReferences = (
 				C908180B2778BA3F00D2F1FE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				C9B0C4112781F79B000FCE77 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = C9E5393227711220006F2D3D /* Products */;
 			projectDirPath = "";
@@ -387,13 +414,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9E5393727711220006F2D3D /* MoviePlayerView.swift in Sources */,
+				C9B0C4102781F706000FCE77 /* MovieListView.swift in Sources */,
 				C9E5393527711220006F2D3D /* WFLApp.swift in Sources */,
+				C9B0C4152781F7F7000FCE77 /* Movie.swift in Sources */,
 				C9515A0627728D9100E183DB /* DeviceRotationViewModifier.swift in Sources */,
 				C90818182778C0F800D2F1FE /* FirebaseFirestoreApi.swift in Sources */,
 				C9620B42277668E70018CFF1 /* WordCardMenuView.swift in Sources */,
 				C95159FF277283D900E183DB /* NSDictionaryExtension.swift in Sources */,
 				C9E5395F277118A8006F2D3D /* MoviePlayerViewModel.swift in Sources */,
+				C9C89EC02781EEA200D857D5 /* MainBackground.swift in Sources */,
+				C9C89EBE2781ED4700D857D5 /* AppDelegate.swift in Sources */,
 				C90818162778BD2A00D2F1FE /* FirebaseAuthApi.swift in Sources */,
+				C9B0C40E2781F57B000FCE77 /* Colors.swift in Sources */,
 				C9B348702773A984007072CB /* StringExtension.swift in Sources */,
 				C9F0034C277250BC00C9786B /* PlayerTimeObserver.swift in Sources */,
 				C9620B492776744C0018CFF1 /* WordCardView.swift in Sources */,
@@ -740,6 +772,14 @@
 				kind = branch;
 			};
 		};
+		C9B0C4112781F79B000FCE77 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -762,6 +802,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C908180B2778BA3F00D2F1FE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseFirestoreCombine-Community";
+		};
+		C9B0C4122781F79B000FCE77 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C9B0C4112781F79B000FCE77 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

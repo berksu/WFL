@@ -12,12 +12,12 @@ import AVKit
 struct MoviePlayerView: View {
 
     @StateObject var viewModel = MoviePlayerViewModel()
-    @State private var orientation = UIDevice.current.orientation
-
     var body: some View {
         GeometryReader{geometry in
             ZStack{
                 VideoPlayer(player: viewModel.player)
+
+                //CustomVideoPlayer(player: $viewModel.player)
                 
                 HStack{
                     VStack(alignment: .leading){
@@ -37,17 +37,20 @@ struct MoviePlayerView: View {
                 VStack{
                     subtitle
                     Spacer()
-                }.padding(orientation.isPortrait ?
-                          EdgeInsets(top: geometry.size.height * 0.3, leading: 0, bottom: 0, trailing: 0):EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
+                }.padding(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
                     .onReceive(viewModel.timeObserver.publisher) { time in
                         viewModel.updateSubtitle(time: time)
                         viewModel.splitSubtitleString()
                     }
             }
             .ignoresSafeArea()
-            .onRotate { newOrientation in
-                orientation = newOrientation
-            }
+        }
+        .onAppear {
+            UIDevice.current.setValue(UIInterfaceOrientation.landscapeLeft.rawValue, forKey: "orientation") // Forcing the rotation to portrait
+            AppDelegate.orientationLock = .landscapeLeft // And making sure it stays that way
+        }.onDisappear {
+            AppDelegate.orientationLock = .all // Unlocking the rotation when leaving the view
+            UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation") // Forcing the rotation to portrait
         }
     }
     
@@ -59,7 +62,7 @@ struct MoviePlayerView: View {
                         viewModel.wordTapped(wordStr: word)
                     } label: {
                         Text("\(word)")
-                            .font(.system(size: orientation.isPortrait ? 18:26, weight: .bold))
+                            .font(.system(size: 26, weight: .bold))
                             .foregroundColor(.white)
                     }
                 }
