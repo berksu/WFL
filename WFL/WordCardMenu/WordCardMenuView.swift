@@ -25,23 +25,27 @@ struct WordCardMenuView: View {
         .background(.black)
     }
     
+    
+    
     var cardsView: some View {
         GeometryReader { geometry in
             ZStack(){
                 let minusVal = viewModel.wordCards.count - 3
                 let loopMinVal = minusVal > 0 ? minusVal:0
-                ForEach(loopMinVal..<viewModel.wordCards.count, id: \.self) { index in
-                    WordCardView(card: self.$viewModel.wordCards[index]){
-                        withAnimation(.spring()){
-                            if(index != 0){
-                                viewModel.wordCards[index-1].isDraggable = true
+                if let cardCount = viewModel.wordCards.count{
+                    ForEach(loopMinVal..<cardCount, id: \.self) { index in
+                        WordCardView(card: self.$viewModel.wordCards[index]){
+                            withAnimation(.spring()){
+                                if(index != 0){
+                                    viewModel.wordCards[index-1].isDraggable = true
+                                }
+                                removeCard(at: index)
                             }
-                            removeCard(at: index)
                         }
+                        .stacked(at: index > 1 ? (index-minusVal):index, in: (viewModel.wordCards.count > 3) ? 3:viewModel.wordCards.count)
+                        .opaced(at: index > 1 ? (index-minusVal):index, in: (viewModel.wordCards.count > 3) ? 3:viewModel.wordCards.count)
+                        .scaled(at: index > 1 ? (index-minusVal):index, in: (viewModel.wordCards.count > 3) ? 3:viewModel.wordCards.count)
                     }
-                    .stacked(at: index > 1 ? (index-minusVal):index, in: (viewModel.wordCards.count > 3) ? 3:viewModel.wordCards.count)
-                    .opaced(at: index > 1 ? (index-minusVal):index, in: (viewModel.wordCards.count > 3) ? 3:viewModel.wordCards.count)
-                    .scaled(at: index > 1 ? (index-minusVal):index, in: (viewModel.wordCards.count > 3) ? 3:viewModel.wordCards.count)
                 }
             }.frame(width: geometry.size.width, height: geometry.size.height)
         }

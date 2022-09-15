@@ -15,6 +15,7 @@
 		C90818162778BD2A00D2F1FE /* FirebaseAuthApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90818152778BD2A00D2F1FE /* FirebaseAuthApi.swift */; };
 		C90818182778C0F800D2F1FE /* FirebaseFirestoreApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90818172778C0F800D2F1FE /* FirebaseFirestoreApi.swift */; };
 		C908181A2778C63300D2F1FE /* WordCardMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90818192778C63300D2F1FE /* WordCardMenuViewModel.swift */; };
+		C91CA4EE279F134E00D7A0EF /* Wordify.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91CA4ED279F134E00D7A0EF /* Wordify.swift */; };
 		C920A8F827822A07007281BF /* NavigationBarTitleColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C920A8F727822A07007281BF /* NavigationBarTitleColor.swift */; };
 		C920A8FA27822AE5007281BF /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C920A8F927822AE5007281BF /* NavigationBarModifier.swift */; };
 		C95159FC2772837200E183DB /* Subtitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95159FB2772837200E183DB /* Subtitles.swift */; };
@@ -68,6 +69,7 @@
 		C90818152778BD2A00D2F1FE /* FirebaseAuthApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthApi.swift; sourceTree = "<group>"; };
 		C90818172778C0F800D2F1FE /* FirebaseFirestoreApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFirestoreApi.swift; sourceTree = "<group>"; };
 		C90818192778C63300D2F1FE /* WordCardMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCardMenuViewModel.swift; sourceTree = "<group>"; };
+		C91CA4ED279F134E00D7A0EF /* Wordify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wordify.swift; sourceTree = "<group>"; };
 		C920A8F727822A07007281BF /* NavigationBarTitleColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarTitleColor.swift; sourceTree = "<group>"; };
 		C920A8F927822AE5007281BF /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		C95159FB2772837200E183DB /* Subtitles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subtitles.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				C9620B3F277668810018CFF1 /* WordCardModel.swift */,
 				C9620B4627766BBB0018CFF1 /* WordCardViewModel.swift */,
 				C9620B482776744C0018CFF1 /* WordCardView.swift */,
+				C91CA4ED279F134E00D7A0EF /* Wordify.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				C9620B492776744C0018CFF1 /* WordCardView.swift in Sources */,
 				C908181A2778C63300D2F1FE /* WordCardMenuViewModel.swift in Sources */,
 				C9515A0327728D0500E183DB /* OnRotateExtension.swift in Sources */,
+				C91CA4EE279F134E00D7A0EF /* Wordify.swift in Sources */,
 				C9620B40277668810018CFF1 /* WordCardModel.swift in Sources */,
 				C95159FC2772837200E183DB /* Subtitles.swift in Sources */,
 				C9620B4727766BBB0018CFF1 /* WordCardViewModel.swift in Sources */,

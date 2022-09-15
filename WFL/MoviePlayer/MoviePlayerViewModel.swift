@@ -18,8 +18,6 @@ final class MoviePlayerViewModel:ObservableObject{
     @Published var subtitleWordsArray:[[String]] = []
     @Published var isWordTapped = false
 
-    fileprivate var parsedPayload: NSDictionary?
-
     @Published var subtitleText = ""
     var meanings:[String] = []
     
@@ -56,29 +54,6 @@ final class MoviePlayerViewModel:ObservableObject{
             }
         }
         oldSubtitleText = subtitleText
-    }
-    
-    func show(subtitles string: String) {
-        var dictionary:[String:Any] = [:]
-            // Parse
-            parsedPayload = Subtitles.parseSubRip(string)
-            //addPeriodicNotification(parsedPayload: parsedPayload!)
-        guard let subtitles = parsedPayload?.swiftDictionary else{
-            return
-        }
-        let sortedKeys = subtitles.keys.sorted(by: {$0.localizedStandardCompare($1) == .orderedAscending})
-
-
-        for key in sortedKeys {
-           // Ordered iteration over the dictionary
-           let val = subtitles[key]
-            dictionary[key] = val
-        }
-    }
-
-    func open(fileFromLocal filePath: URL, encoding: String.Encoding = String.Encoding.utf8) {
-        let contents = try! String(contentsOf: filePath, encoding: encoding)
-        show(subtitles: contents)
     }
     
     func wordTapped(wordStr: String){

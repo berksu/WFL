@@ -19,9 +19,11 @@ final class WordCardViewModel: ObservableObject {
     fileprivate var parsedPayload: NSDictionary?
 
     func playerInit(videoUrl: String, startTime: Float64){
-        player = AVPlayer(url: URL(string: videoUrl)!)
-        player.seek(to: CMTimeMake(value: Int64(startTime - 3), timescale: 1))
-        timeObserver = PlayerTimeObserver(player: self.player, observingTime: 0.1)
+        if let videoURL = URL(string: videoUrl){
+            player = AVPlayer(url: videoURL)
+            player.seek(to: CMTimeMake(value: Int64(startTime - 3), timescale: 1))
+            timeObserver = PlayerTimeObserver(player: self.player, observingTime: 0.1)
+        }
     }
     
     func pauseVideoWhenItReaches(time: Double, cardTime: Float64){

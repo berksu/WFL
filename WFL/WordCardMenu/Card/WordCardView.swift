@@ -15,8 +15,6 @@ struct WordCardView: View {
     @StateObject var viewModel = WordCardViewModel()
 
     @State private var offset = CGSize.zero
-    @State var flashCardRotation = 0.0
-    @State var contentRotation = 0.0
     
     var body: some View {
         GeometryReader { geometry in
@@ -25,66 +23,60 @@ struct WordCardView: View {
                     .foregroundColor(.red)
                     .overlay(RoundedRectangle(cornerRadius: 30)
                                 .strokeBorder(.black,lineWidth: 5))
-                    .frame(width: geometry.size.width*0.85,
-                           height: geometry.size.height*0.9)
-                    .rotationEffect(.degrees(Double(offset.width / 5)))
-                    .offset(x: offset.width * 5, y: 0)
-                    .opacity(2-Double(abs(offset.width / 50)))
-                    .gesture(
-                        DragGesture()
-                            .onChanged{ gesture in
-                                viewModel.player.pause()
-                                withAnimation(.spring()){
-                                    self.offset = self.card.isDraggable ? gesture.translation:self.offset
-                                }
-                            }
-                            .onEnded{ _ in
-                                if(abs(self.offset.width) > 150){
-                                    withAnimation(.spring()){
-                                        self.removal?()
-                                    }
-                                }else{
-                                    withAnimation(.spring()){
-                                        self.offset = .zero
-                                        if(card.isTapped){
-                                            viewModel.player.play()
-                                        }
-                                    }
-                                }
-                            }
-                    )
+                    
                     .onTapGesture {
                         flipCard()
                     }
 
-                if(!card.isTapped){
-                    wordText
-                }else{
-                    player
-                        .frame(width: geometry.size.width*0.8,
-                               height: geometry.size.height*0.7)
-                        .onReceive(viewModel.timeObserver.publisher) { time in
+                
+                player
+                    .modifier(Wordify(isTapped: card.isTapped, word: card.word))
+                    .frame(width: geometry.size.width*0.8,
+                           height: geometry.size.height*0.7)
+                    .onReceive(viewModel.timeObserver.publisher) { time in
                             viewModel.pauseVideoWhenItReaches(time: time, cardTime: card.startTime)
-                        }
-                }
+                    }
+                    .gesture(
+                        DragGesture()
+                    )
+                
             }
-            .onAppear {
-                viewModel.playerInit(videoUrl: card.videoUrl, startTime: card.startTime)
-            }
-            
-            .rotation3DEffect(.degrees(contentRotation), axis: (x:0, y:1, z:0))
-            .rotation3DEffect(.degrees(flashCardRotation), axis: (x:0, y:1, z:0))
-        }
-    }
-
-    
-    var wordText: some View{
-        Text(card.word)
+            .rotation3DEffect(.degrees(card.isTapped ? 0:180), axis: (0,1,0))
+            .frame(width: geometry.size.width*0.9,
+                   height: geometry.size.height*0.95)
             .rotationEffect(.degrees(Double(offset.width / 5)))
             .offset(x: offset.width * 5, y: 0)
             .opacity(2-Double(abs(offset.width / 50)))
+            .gesture(
+                DragGesture()
+                    .onChanged{ gesture in
+                        viewModel.player.pause()
+                        withAnimation(.spring()){
+                            self.offset = self.card.isDraggable ? gesture.translation:self.offset
+                        }
+                    }
+                    .onEnded{ _ in
+                        if(abs(self.offset.width) > 150){
+                            //self.transition(.asymmetric(insertion: .identity, removal: .scale))
+                            self.removal?()
+                            //withAnimation(.spring()){
+                            //}
+                        }else{
+                            withAnimation(.spring()){
+                                self.offset = .zero
+                                if(card.isTapped){
+                                    viewModel.player.play()
+                                }
+                            }
+                        }
+                    }
+            )
+            .onAppear {
+                viewModel.playerInit(videoUrl: card.videoUrl, startTime: card.startTime)
+            }
+        }
     }
-    
+
     var player: some View{
         ZStack{
             VideoPlayer(player: viewModel.player){
@@ -110,21 +102,10 @@ struct WordCardView: View {
                     .padding(.bottom, 40)
             }
         }
-            .rotationEffect(.degrees(Double(offset.width / 5)))
-            .offset(x: offset.width * 5, y: 0)
-            .opacity(2-Double(abs(offset.width / 50)))
     }
     
     func flipCard(){
-        let animationTime = 0.5
-        withAnimation(Animation.linear(duration: animationTime)){
-            flashCardRotation += 180
-            viewModel.player.pause()
-
-        }
-        
-        withAnimation(Animation.linear(duration: 0.001).delay(animationTime/2)){
-            contentRotation += 180
+        withAnimation(.easeInOut(duration: 1)) {
             self.card.isTapped.toggle()
         }
     }

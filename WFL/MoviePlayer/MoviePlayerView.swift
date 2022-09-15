@@ -37,7 +37,7 @@ struct MoviePlayerView: View {
                 VStack{
                     subtitle
                     Spacer()
-                }.padding(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
+                }.padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0))
                     .onReceive(viewModel.timeObserver.publisher) { time in
                         viewModel.updateSubtitle(time: time)
                         viewModel.splitSubtitleString()
@@ -56,18 +56,20 @@ struct MoviePlayerView: View {
     }
     
     var subtitle: some View{
-        ForEach(viewModel.subtitleWordsArray, id: \.self){words in
-            HStack{
-                ForEach(words, id: \.self){word in
-                    Button {
-                        viewModel.wordTapped(wordStr: word)
-                    } label: {
-                        Text("\(word)")
-                            .font(.system(size: 26, weight: .bold))
-                            .foregroundColor(.white)
+        VStack{
+            ForEach(viewModel.subtitleWordsArray, id: \.self){words in
+                HStack{
+                    ForEach(words, id: \.self){word in
+                        Button {
+                            viewModel.wordTapped(wordStr: word)
+                        } label: {
+                            Text("\(word)")
+                                .font(.system(size: 26, weight: .bold))
+                                .foregroundColor(.white)
+                        }
                     }
-                }
-            }.background(Color(red: 0, green: 0, blue: 0, opacity: 0.5))
+                }.background(Color(red: 0, green: 0, blue: 0, opacity: 0.5))
+            }
         }
     }
 
